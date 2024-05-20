@@ -17,50 +17,153 @@ php?>
 
 To initialize the code, use the following constructors
 
+```
 HTML: $builder = new HtmlBuilder();
 CSS: $css = new CSSGenerate("styles.css");
+```
 
 ## HTML
 
 The HtmlElement class creates a flexible and efficient way to generate HTML elements and structures programmatically. It has private properties for the tag name, content, and attributes. The constructor allows you to set the tag name, content, and the attributes. Lastly, the render() function generates all defined HTML elements, arguments, and structures.
 
 The HtmlBuilder class manages a collection of methods that implements the generation of the class HtmlElement.
-Methods:
-addElement() = Adds a htmlElement to the program
-render() = renders the generated the specific html command/prompt
-saveToFile() = pushes all rendered commands to a separate html file
 
-Elements:
-createElement($tag, $content = '', $attributes = []) = creates a generic html element.
-    createLinkCss($filename) = Create a CSS link element.
-createHeader($level, $text, $class = '') = Create a header element (h1, h2, etc.).
-    createParagraph($text, $class = '') = Create a paragraph element.
-    createBreak() = Create a line break element.
-    createAnchor($href, $text, $class = '') = Create an anchor element (link).
-    createImage($src, $alt, $class = '') = Create an image element.
-    createSpan($text, $class = '') = Create a span element.
-    createOrderedList($items, $class = '') = Create an ordered list.
-    createUnorderedList($items, $class = '') = Create an unordered list
-    createListItem($content) = Create a list item.
-createTable($data, $class = '') = Create a table.
-    createForm($action, $method, $class = '') = Create a form.
-    createInput($type, $name, $placeholder = '', $class = '') = Create an input field.
-    createButton($text, $type = 'button', $class = '') = Create a button.
-    createDiv($elements, $class = '') = Create a div element.
-    createCheckbox($name, $checked = false, $class = '') = Create a checkbox input.
-    createTextarea($name, $id, $placeholder = '', $class = '') = Create a textarea.
-    createSection($content, $class = '') = Create a section element.
-    createDt($text, $class = '') = Create a definition term.
-    createDd($text, $class = '') = Create a definition description.
+## Methods
 
-How to use: - Instantiate HtmlBuilder.
-$htmlBuilder = new HtmlBuilder(); - Use the function elements to create HTML elements
-$htmlBuilder->addElement(createParagraph('Hello World!', 'text')); - Use the render function to generate the command.
-$htmlBuilder->addElement(createParagraph('Hello World!', 'text'))
-->render() - Lastly, push the code to the separate html file using the save to file function
-$htmlBuilder->addElement(createParagraph('Hello World!', 'text'))
-->render()
-->saveToFile('test.html');
+**addElement() =** Adds a htmlElement to the program.
+
+**render() =** renders the generated the specific html command/prompt.
+
+**saveToFile() =** pushes all rendered commands to a separate html file.
+
+
+## Function elements
+    
+Here is the list of HTML function elements that can be used in the HtmlBuilder class.
+
+#### Create Element
+Creates a generic html element.
+
+    createElement($tag, $content = '', $attributes = []);
+
+#### Create Css Link
+Links a HTML file to an CSS file.
+
+    createLinkCss($filename);
+
+#### Create Header
+Creates a < h1 > , < h2 >, < h3 >... element.
+
+    createHeader(level, text, class = '');
+
+#### Create Paragraph
+Creates a < p > element.
+
+    createParagraph($text, $class = '');
+
+#### Create Break
+Creates the < br > element.
+
+    createBreak();
+
+#### Create Reference/Link
+Creates the < a href > element.
+
+    createAnchor($href, $text, $class = '');
+
+#### Create Image Source
+Creates the < img > element.
+
+    createImage($src, $alt, $class = '');
+
+#### Create Span
+Creates the < span > element.
+
+    createSpan($text, $class = '');
+
+#### Create OrderedList
+Creates the < ol > element.
+
+    createOrderedList($items, $class = '');
+
+#### Create UnorderedList
+Creates the < ul > element.
+
+    createUnorderedList($items, $class = '');
+
+#### Create List
+Creates the < li > element that can be used under < ol > or < ul >.
+
+    createListItem($content);
+
+#### Create Table
+Creates the < table > element.
+
+    createTable($data, $class = '');
+
+#### Create Form
+Creates the < form > element.
+
+    createForm($action, $method, $class = '');
+
+#### Create Input
+Creates the < input > element.
+
+    createInput($type, $name, $placeholder = '', $class = '');
+
+#### Create Button
+Creates the < button > element.
+
+    createButton($text, $type = 'button', $class = '');
+
+#### Create Div
+Creates the < div > element.
+
+    createDiv($elements, $class = '');
+
+#### Create Checkbox
+Creates the < input type="checkbox" > element.
+
+    createCheckbox($name, $checked = false, $class = '');
+
+#### Create Text Area
+Creates the < textarea > element.
+
+    createTextarea($name, $id, $placeholder = '', $class = '');
+
+#### Create Section
+Creates the < section > element.
+
+    createSection($content, $class = '');
+
+#### Create Definition Term
+Creates the < dt > element.
+
+    createDt($text, $class = '');
+
+#### Create Definition Description
+
+    createDd($text, $class = '');
+
+
+ ## How to use
+  - Instantiate HtmlBuilder.
+
+        $htmlBuilder = new HtmlBuilder(); 
+    
+  - Use the function elements to create HTML elements.
+
+        $htmlBuilder->addElement(createParagraph('Hello World!', 'text'));
+        
+  - Use the render function to generate the command.
+  
+        $htmlBuilder->addElement(createParagraph('Hello World!', 'text'))
+        ->render();
+
+  - Lastly, push the code to the separate html file using the save to file function.
+
+        $htmlBuilder->addElement(createParagraph('Hello World!', 'text'))->render()->saveToFile('test.html');
+
 
 ## CSS
 
